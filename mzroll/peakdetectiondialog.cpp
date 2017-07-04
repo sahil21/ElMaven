@@ -53,14 +53,6 @@ void PeakDetectionDialog::showSettingsForm() {
     mainwindow->settingsForm->setIsotopeDetectionTab();
 }
 
-void PeakDetectionDialog::updatePeakQType(QString pQType) {
-    int index = peakQuantitation->findText(pQType);
-
-    if(index != -1) {
-        peakQuantitation->setCurrentIndex(index);
-    }
-}
-
 void PeakDetectionDialog::setDeltaRTWeightVisible(bool value) {
     label_26->setVisible(value);
     deltaRTWeight->setVisible(value);
@@ -207,7 +199,6 @@ void PeakDetectionDialog::show() {
 
     inputInitialValuesPeakDetectionDialog();
 
-    updatePeakQType(mainwindow->quantType->currentText());
 }
 
 /**
