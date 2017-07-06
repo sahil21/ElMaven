@@ -720,6 +720,8 @@ void MainWindow::saveSettingsToLog() {
     summary << "minNoNoiseObs=" << mavenParameters->minNoNoiseObs << "\n";
     summary << "minSignalBaseLineRatio="
             << mavenParameters->minSignalBaseLineRatio << "\n";
+    summary << "minSignalBaseLineDifference="
+            << mavenParameters->minSignalBaseLineDifference << "\n";
     summary << "minGroupIntensity=" << mavenParameters->minGroupIntensity
             << "\n";
 
@@ -1932,6 +1934,9 @@ void MainWindow::readSettings() {
 
     if (!settings->contains("minSignalBaseLineRatio"))
         settings->setValue("minSignalBaseLineRatio", 2);
+
+    if (!settings->contains("minSignalBaseLineDifference"))
+        settings->setValue("minSignalBaseLineDifference", 0);
 
     if (!settings->contains("minSignalBlankRatio"))
         settings->setValue("minSignalBlankRatio", 2);

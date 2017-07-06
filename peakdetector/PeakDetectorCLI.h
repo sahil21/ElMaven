@@ -199,6 +199,9 @@ class PeakDetectorCLI {
 		
 };
 
+/*
+A struct to store the arguments (and their values) of the default xml
+*/
 struct Arguments {
 
 	QStringList generalArgs;
@@ -231,6 +234,7 @@ struct Arguments {
 		peakDialogArgs << "int" << "minPeakWidth" << "1";
 		peakDialogArgs << "int" << "eicSmoothingWindow" << "10";
 		peakDialogArgs << "float" << "minSignalBaseLineRatio" << "2";
+		peakDialogArgs << "float" << "minSignalBaseLineDifference" << "0";
 		peakDialogArgs << "int" << "quantitationType" << "0";
 		peakDialogArgs << "float" << "minScanMz" << "0";
 		peakDialogArgs << "float" << "maxScanMz" << "1000000000";

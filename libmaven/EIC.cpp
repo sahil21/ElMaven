@@ -432,6 +432,8 @@ void EIC::getPeakDetails(Peak& peak) {
     peak.peakAreaCorrected = peak.peakArea-baselineArea;
     peak.peakAreaFractional = peak.peakAreaCorrected/(totalIntensity+1);
     peak.signalBaselineRatio = peak.peakIntensity/maxBaseLine;
+    //difference between peak intensity and maximum baseline in a peak
+    peak.signalBaselineDifference = peak.peakIntensity - maxBaseLine;
 
     if (allmzs.size()> 0 ) {
         peak.medianMz = allmzs.median();

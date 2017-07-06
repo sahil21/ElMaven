@@ -135,6 +135,8 @@ public:
 	float minSignalBlankRatio;
 	float minNoNoiseObs;
 	float minSignalBaseLineRatio;
+	//parameter to filter out a group on the basis of signal-basline difference
+	float minSignalBaseLineDifference;
 	float minGroupIntensity;
 	int peakQuantitation;
 

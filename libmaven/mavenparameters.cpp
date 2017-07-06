@@ -43,6 +43,7 @@ MavenParameters::MavenParameters() {
         minSignalBlankRatio = 2;
         minNoNoiseObs = 1;
         minSignalBaseLineRatio = 2;
+        minSignalBaseLineDifference = 0;
         minGroupIntensity = 500;
         peakQuantitation = 0;
         minQuality = 0.5;
@@ -158,6 +159,7 @@ void MavenParameters::printSettings() {
         cerr << "#minSignalBlankRatio=" << minSignalBlankRatio << endl;
         cerr << "#minNoNoiseObs=" << minNoNoiseObs << endl;
         cerr << "#minSignalBaseLineRatio=" << minSignalBaseLineRatio << endl;
+        cerr << "#minSignalBaseLineDifference=" << minSignalBaseLineDifference << endl;
         cerr << "#minGroupIntensity=" << minGroupIntensity << endl;
 
 

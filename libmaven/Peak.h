@@ -74,6 +74,10 @@ class Peak {
         float noNoiseFraction;
         float symmetry;
         float signalBaselineRatio;
+        /*signal to baseline difference of a peak. i.e difference
+        between peak intensity and maximum baseline of a peak
+        */
+        float signalBaselineDifference;
         /** 0 no overlap, 1 perfect overlap */
         float groupOverlap;
         float groupOverlapFrac;

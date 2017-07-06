@@ -890,6 +890,9 @@ void PeakDetector::processSlices(vector<mzSlice*>&slices, string setName) {
                         if (group.maxSignalBaselineRatio
                             < mavenParameters->minSignalBaseLineRatio)
                                 continue;
+                        if (group.maxSignalBaselineDifference
+                            < mavenParameters->minSignalBaseLineDifference)
+                                continue;
                         if (group.maxIntensity < mavenParameters->minGroupIntensity)
                                 continue;
                     

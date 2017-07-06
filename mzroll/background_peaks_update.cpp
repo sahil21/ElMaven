@@ -80,6 +80,8 @@ QString BackgroundPeakUpdate::printSettings() {
     summary << "minNoNoiseObs=" << mavenParameters->minNoNoiseObs << "\n";
     summary << "minSignalBaseLineRatio="
             << mavenParameters->minSignalBaseLineRatio << "\n";
+    summary << "minSignalBaseLineDifference="
+            << mavenParameters->minSignalBaseLineDifference << "\n";
     summary << "minGroupIntensity=" << mavenParameters->minGroupIntensity
             << "\n";
 
@@ -148,6 +150,7 @@ void BackgroundPeakUpdate::saveSettings(QString fileName) {
     stream.writeAttribute( "minSignalBlankRatio" ,QString::number( mavenParameters->minSignalBlankRatio));
     stream.writeAttribute( "minNoNoiseObs" ,QString::number( mavenParameters->minNoNoiseObs));
     stream.writeAttribute( "minSignalBaseLineRatio" ,QString::number( mavenParameters->minSignalBaseLineRatio));
+    stream.writeAttribute( "minSignalBaseLineDifference" ,QString::number( mavenParameters->minSignalBaseLineDifference));
     stream.writeAttribute( "minGroupIntensity" ,QString::number( mavenParameters->minGroupIntensity));
 
     stream.writeAttribute( "outputdir" , QString::fromStdString(mavenParameters->outputdir));
@@ -200,6 +203,8 @@ void BackgroundPeakUpdate::loadSettings(QString fileName) {
                 settings->setValue("minNoNoiseObs", xml.attributes().value("minNoNoiseObs").toString().toInt());
                 settings->setValue("minSignalBaseLineRatio",
                         xml.attributes().value("minSignalBaseLineRatio").toString().toFloat());
+                settings->setValue("minSignalBaseLineDifference",
+                        xml.attributes().value("minSignalBaseLineDifference").toString().toFloat());
                 settings->setValue("minSignalBlankRatio",
                         xml.attributes().value("minSignalBlankRatio").toString().toFloat());
                 settings->setValue("minGroupIntensity",

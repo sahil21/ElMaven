@@ -124,6 +124,8 @@ class PeakGroup{
         float maxPeakFracionalArea;
         float maxSignalBaseRatio;
         float maxSignalBaselineRatio;
+        //maxmimum of signal to baseline difference of peaks in a group        
+        float maxSignalBaselineDifference;
         int goodPeakCount;
         float expectedRtDiff;
         float groupRank;

@@ -378,6 +378,11 @@ void PeakDetectorCLI::processPeaksArgsXML(xml_node& peaksArgs) {
 			mavenParameters->minSignalBaseLineRatio = atof(node.attribute("value").value());
 
 		}
+		else if (strcmp(node.name(),"minSignalBaseLineDifference") == 0) {
+
+			mavenParameters->minSignalBaseLineDifference = atof(node.attribute("value").value());
+
+		}		
 		else if (strcmp(node.name(),"quantitationType") == 0) {
 
 			mavenParameters->peakQuantitation = (PeakGroup::QType)atoi(node.attribute("value").value()); //AreaTop=0, Area=1, Height=2, AreaNotCorrected=3
@@ -805,6 +810,8 @@ void PeakDetectorCLI::writeParametersXML(xml_node& parent) {
 	p.append_attribute("minPeakWidth") = mavenParameters->minNoNoiseObs;
 	p.append_attribute("minSignalBaseLineRatio") =
 			mavenParameters->minSignalBaseLineRatio;
+	p.append_attribute("minSignalBaseLineDifference") =
+			mavenParameters->minSignalBaseLineDifference;				
 	p.append_attribute("minGroupIntensity") = mavenParameters->minGroupIntensity;
 	p.append_attribute("minQuality") = mavenParameters->minQuality;
 }
@@ -871,6 +878,7 @@ void PeakDetectorCLI::writeGroupXML(xml_node& parent, PeakGroup* g) {
 		peak.append_attribute("noNoiseFraction") = p.noNoiseFraction;
 		peak.append_attribute("symmetry") = p.symmetry;
 		peak.append_attribute("signalBaselineRatio") = p.signalBaselineRatio;
+		peak.append_attribute("signalBaselineDifference") = p.signalBaselineDifference;
 		peak.append_attribute("groupOverlap") = p.groupOverlap;
 		peak.append_attribute("groupOverlapFrac") = p.groupOverlapFrac;
 		peak.append_attribute("localMaxFlag") = p.localMaxFlag;

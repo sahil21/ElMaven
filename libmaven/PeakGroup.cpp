@@ -34,6 +34,7 @@ PeakGroup::PeakGroup()  {
     maxPeakFracionalArea=0;
     maxSignalBaseRatio=0;
     maxSignalBaselineRatio=0;
+    maxSignalBaselineDifference=0;
     maxPeakOverlap=0;
     maxQuality=0;
     minQuality = 0.2;
@@ -102,6 +103,7 @@ void PeakGroup::copyObj(const PeakGroup& o)  {
     maxPeakFracionalArea=o.maxPeakFracionalArea;
     maxSignalBaseRatio=o.maxSignalBaseRatio;
     maxSignalBaselineRatio=o.maxSignalBaselineRatio;
+    maxSignalBaselineDifference=o.maxSignalBaselineDifference;
     maxPeakOverlap=o.maxPeakOverlap;
     maxQuality=o.maxQuality;
     expectedRtDiff=o.expectedRtDiff;
@@ -466,6 +468,7 @@ void PeakGroup::groupStatistics() {
     maxQuality=0;
     goodPeakCount=0;
     maxSignalBaselineRatio=0;
+    maxSignalBaselineDifference=0;
     quantileIntensityPeaks=0;
     quantileQualityPeaks=0;
     int nonZeroCount=0;
@@ -508,8 +511,8 @@ void PeakGroup::groupStatistics() {
         if(peaks[i].peakAreaFractional > maxPeakFracionalArea) maxPeakFracionalArea=peaks[i].peakAreaFractional;
         if(peaks[i].quality > maxQuality) maxQuality = peaks[i].quality;
         if(peaks[i].quality > minQuality) goodPeakCount++; //Sabu
-        if ( peaks[i].signalBaselineRatio > maxSignalBaselineRatio) maxSignalBaselineRatio =  peaks[i].signalBaselineRatio;
-
+        if (peaks[i].signalBaselineRatio > maxSignalBaselineRatio) maxSignalBaselineRatio =  peaks[i].signalBaselineRatio;
+        if (peaks[i].signalBaselineDifference > maxSignalBaselineDifference) maxSignalBaselineDifference =  peaks[i].signalBaselineDifference;
 
         if(peaks[i].fromBlankSample) {
             blankSampleCount++;
@@ -563,6 +566,7 @@ void PeakGroup::summary() {
         <<"\t" << "maxNoNoiseObs=" << maxNoNoiseObs << endl
         <<"\t" << "sampleCount=" << sampleCount << endl
         <<"\t" << "maxSignalBaselineRatio=" << maxSignalBaselineRatio << endl
+        <<"\t" << "maxSignalBaselineDifference=" << maxSignalBaselineDifference << endl
         <<"\t" << "maxPeakFracionalArea=" << maxPeakFracionalArea << endl
         <<"\t" << "blankMean=" << blankMean << endl
         <<"\t" << "sampleMean=" << sampleMean << endl

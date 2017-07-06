@@ -74,6 +74,7 @@ void TestCLI::testProcessXml() {
     QVERIFY(peakdetectorCLI->mavenParameters->minNoNoiseObs == 3);
     QVERIFY(peakdetectorCLI->mavenParameters->eic_smoothingWindow == 20);
     QVERIFY(peakdetectorCLI->mavenParameters->minSignalBaseLineRatio == 4);
+    QVERIFY(peakdetectorCLI->mavenParameters->minSignalBaseLineDifference == 100);
     QVERIFY(peakdetectorCLI->mavenParameters->alignSamplesFlag == 0);
     QVERIFY(peakdetectorCLI->saveJsonEIC == 1);
     QVERIFY(peakdetectorCLI->saveMzrollFile == 1);

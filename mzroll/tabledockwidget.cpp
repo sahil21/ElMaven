@@ -788,6 +788,7 @@ void TableDockWidget::writeGroupMzEICJson(PeakGroup& grp,ofstream& myfile, vecto
             myfile << ",\n" << "\"peakAreaTopNotCorrected\": " << peak->peakAreaTop;
             myfile << ",\n" << "\"noNoiseObs\": " << peak->noNoiseObs ;
             myfile << ",\n" << "\"signalBaselineRatio\": " << peak->signalBaselineRatio ;
+            myfile << ",\n" << "\"signalBaselineDifference\": " << peak->signalBaselineDifference ;
             myfile << ",\n" << "\"fromBlankSample\": " << peak->fromBlankSample ;
             myfile << ",\n" << "\"peakAreaFractional\": " << peak->peakAreaFractional ;
             myfile << ",\n" << "\"symmetry\": " << peak->symmetry ;
@@ -818,6 +819,7 @@ void TableDockWidget::writeGroupMzEICJson(PeakGroup& grp,ofstream& myfile, vecto
             myfile << ",\n" << "\"peakAreaTopNotCorrected\": " << "\"NA\"";
             myfile << ",\n" << "\"noNoiseObs\": " << "\"NA\"" ;
             myfile << ",\n" << "\"signalBaselineRatio\": " << "\"NA\"" ;
+            myfile << ",\n" << "\"signalBaselineDifference\": " << "\"NA\"" ;
             myfile << ",\n" << "\"fromBlankSample\": " << "\"NA\"" ;
             myfile << ",\n" << "\"peakAreaFractional\": " << "\"NA\"" ;
             myfile << ",\n" << "\"symmetry\": " << "\"NA\"" ;
@@ -1734,6 +1736,7 @@ void TableDockWidget::writeGroupXML(QXmlStreamWriter& stream, PeakGroup* g) {
         stream.writeAttribute("noNoiseFraction",  QString::number(p.noNoiseFraction,'f',6));
         stream.writeAttribute("symmetry",  QString::number(p.symmetry,'f',6));
         stream.writeAttribute("signalBaselineRatio",  QString::number(p.signalBaselineRatio, 'f', 6));
+        stream.writeAttribute("signalBaselineDifference",  QString::number(p.signalBaselineDifference, 'f', 6));
         stream.writeAttribute("groupOverlap",  QString::number(p.groupOverlap,'f',6));
         stream.writeAttribute("groupOverlapFrac",  QString::number(p.groupOverlapFrac,'f',6));
         stream.writeAttribute("localMaxFlag",  QString::number(p.localMaxFlag));
@@ -1864,6 +1867,7 @@ void TableDockWidget::readPeakXML(QXmlStreamReader& xml,PeakGroup* parent) {
     p.noNoiseFraction = xml.attributes().value("noNoiseFraction").toString().toDouble();
     p.symmetry = xml.attributes().value("symmetry").toString().toDouble();
     p.signalBaselineRatio = xml.attributes().value("signalBaselineRatio").toString().toDouble();
+    p.signalBaselineDifference = xml.attributes().value("signalBaselineDifference").toString().toDouble();
     p.groupOverlap = xml.attributes().value("groupOverlap").toString().toDouble();
     p.groupOverlapFrac = xml.attributes().value("groupOverlapFrac").toString().toDouble();
     p.localMaxFlag = xml.attributes().value("localMaxFlag").toString().toInt();
